@@ -1,6 +1,7 @@
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { pages, site } from "@/app/lib/site-content";
+import { assetPath } from "@/app/lib/site-path";
 
 const story = pages.story;
 
@@ -12,11 +13,11 @@ const storyMoments = [
 ] as const;
 
 const storyImages = [
-  { src: "/images/church-roof.jpg", alt: "The open roof and stone arches inside St Luke’s." },
-  { src: "/images/church-arch.jpg", alt: "St Luke’s tower framed by a weathered brick arch." },
-  { src: "/images/church-wall.jpg", alt: "The long red-brick wall and arches of St Luke’s." },
-  { src: "/images/church-nave.jpg", alt: "The ruined nave looking towards the tower and open sky." },
-  { src: "/images/garden-crowd.jpg", alt: "People gathering beside St Luke’s in the sunny garden." },
+  { src: assetPath("/images/church-roof.jpg"), alt: "The open roof and stone arches inside St Luke’s." },
+  { src: assetPath("/images/church-arch.jpg"), alt: "St Luke’s tower framed by a weathered brick arch." },
+  { src: assetPath("/images/church-wall.jpg"), alt: "The long red-brick wall and arches of St Luke’s." },
+  { src: assetPath("/images/church-nave.jpg"), alt: "The ruined nave looking towards the tower and open sky." },
+  { src: assetPath("/images/garden-crowd.jpg"), alt: "People gathering beside St Luke’s in the sunny garden." },
 ] as const;
 
 export default function StoryPage() {

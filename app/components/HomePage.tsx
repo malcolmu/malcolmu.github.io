@@ -3,6 +3,7 @@ import { EventCard } from "@/app/components/EventCard";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { events, formatEventDate, formatTime } from "@/app/lib/events";
+import { assetPath } from "@/app/lib/site-path";
 
 export function HomePage() {
   const upcoming = events.slice(0, 3);
@@ -10,7 +11,7 @@ export function HomePage() {
   return (
     <main>
       <section className="hero" aria-labelledby="home-title">
-        <img className="hero__image" src="/images/church-roof.jpg" alt="The open-roof interior of St Luke’s Bombed Out Church." />
+        <img className="hero__image" src={assetPath("/images/church-roof.jpg")} alt="The open-roof interior of St Luke’s Bombed Out Church." />
         <div className="hero__wash" />
         <SiteHeader inverted />
         <div className="hero__copy wrap">
@@ -54,7 +55,7 @@ export function HomePage() {
       </section>
 
       <section className="visit-band" id="visit" aria-labelledby="visit-title">
-        <div className="visit-band__image"><img src="/images/church-arch.jpg" alt="St Luke’s tower visible through a brick arch." /></div>
+        <div className="visit-band__image"><img src={assetPath("/images/church-arch.jpg")} alt="St Luke’s tower visible through a brick arch." /></div>
         <div className="visit-band__copy">
           <p className="section-label">Find your way here</p>
           <h2 id="visit-title">Step inside.</h2>
@@ -70,7 +71,7 @@ export function HomePage() {
             <h2 id="garden-title">Good things<br />grow here.</h2>
             <Link href="/garden-bar" className="button button--green">Garden Bar details <span aria-hidden="true">↗</span></Link>
           </div>
-          <img src="/images/garden-bar.jpg" alt="People enjoying the Garden Bar next to the church." />
+          <img src={assetPath("/images/garden-bar.jpg")} alt="People enjoying the Garden Bar next to the church." />
         </div>
       </section>
 

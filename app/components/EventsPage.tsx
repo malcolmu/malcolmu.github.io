@@ -6,6 +6,7 @@ import { EventCard } from "@/app/components/EventCard";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { eventCategories, events, formatTime, type EventCategory } from "@/app/lib/events";
+import { assetPath } from "@/app/lib/site-path";
 
 const monthStart = new Date(2026, 7, 1);
 const dayLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
@@ -101,7 +102,7 @@ export function EventsPage() {
   return (
     <main className="events-page">
       <section className="events-intro" aria-labelledby="events-title">
-        <img src="/images/garden-crowd.jpg" alt="People gathering in the sunny gardens beside St Luke’s for an event." />
+        <img src={assetPath("/images/garden-crowd.jpg")} alt="People gathering in the sunny gardens beside St Luke’s for an event." />
         <div className="events-intro__overlay" />
         <SiteHeader inverted />
         <div className="wrap events-intro__copy">

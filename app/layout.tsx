@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteBasePath } from "@/app/lib/site-path";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,8 +15,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: `${siteBasePath}/favicon.svg`,
+    shortcut: `${siteBasePath}/favicon.svg`,
   },
 };
 

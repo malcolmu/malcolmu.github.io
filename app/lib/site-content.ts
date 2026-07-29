@@ -1,3 +1,5 @@
+import { assetPath } from "@/app/lib/site-path";
+
 export type ContentBlock = { heading?: string; text: string; id?: string; link?: { href: string; label: string } };
 
 export const site = {
@@ -11,7 +13,7 @@ export const pages = {
     eyebrow: "Plan your visit",
     title: "Find your way into the story.",
     intro: "St Luke’s sits between Bold Street, the Knowledge Quarter and Liverpool Cathedral. Come in for a quiet look around, an event, a drink in the garden or a deeper dive into the building’s history.",
-    image: "/images/church-arch.jpg",
+    image: assetPath("/images/church-arch.jpg"),
     alt: "St Luke’s tower framed by a weathered brick arch.",
     blocks: [
       { heading: "Before you travel", text: "The church, gardens and Garden Bar each have their own rhythm. Check the latest opening information and individual event details before travelling." },
@@ -23,7 +25,7 @@ export const pages = {
     eyebrow: "Our story",
     title: "A landmark made by Liverpool — and remade by its people.",
     intro: "St Luke’s has watched Liverpool change for almost two centuries. Damaged during the Blitz and left open to the sky, it is now a place to remember, meet, make and celebrate.",
-    image: "/images/church-roof.jpg",
+    image: assetPath("/images/church-roof.jpg"),
     alt: "The open roof and stone arches inside St Luke’s.",
     blocks: [
       { heading: "A church in the city", text: "The foundation stone was laid on 9 April 1811 and St Luke’s opened in 1832. Built at the edge of a growing city, its distinctive tower has remained a point of orientation for generations of Liverpool people." },
@@ -37,7 +39,7 @@ export const pages = {
     eyebrow: "Garden Bar & Café",
     title: "Good things grow here.",
     intro: "The Garden Bar is a sociable corner of the city: drinks, food, sunshine when it appears and a view unlike anywhere else in Liverpool.",
-    image: "/images/garden-bar.jpg",
+    image: assetPath("/images/garden-bar.jpg"),
     alt: "People enjoying the Garden Bar alongside the church.",
     blocks: [
       { heading: "Opening times", text: "The Garden Bar is open for the summer season. Opening days and hours are weather-dependent and may change from week to week, so check the latest update before travelling.", link: { href: "https://www.instagram.com/bocgardenbar/", label: "Latest opening times on Instagram" } },
@@ -50,7 +52,7 @@ export const pages = {
     eyebrow: "Weddings at St Luke’s",
     title: "Begin with a place that has a story of its own.",
     intro: "For couples looking for a setting with atmosphere, history and an unmistakably Liverpool sense of place, St Luke’s offers a remarkable backdrop for a celebration.",
-    image: "/images/garden-crowd.jpg",
+    image: assetPath("/images/garden-crowd.jpg"),
     alt: "People gathering in the sunny garden beside St Luke’s.",
     blocks: [
       { heading: "Your day, your way", text: "The building and gardens can provide a striking setting for ceremonies, receptions and photographs. Capacity, permissions and supplier arrangements should be confirmed with the weddings team." },
@@ -61,7 +63,7 @@ export const pages = {
     eyebrow: "Venue hire",
     title: "Make an occasion of it.",
     intro: "From launches and performances to filming, dinners and private celebrations, St Luke’s is a venue that brings its own character before anyone arrives.",
-    image: "/images/church-nave.jpg",
+    image: assetPath("/images/church-nave.jpg"),
     alt: "The ruined nave looking towards the tower and open sky.",
     blocks: [
       { heading: "A flexible setting", text: "The church and its outdoor spaces can host cultural, corporate and private activity. Every event begins with a conversation about the format, audience, timing and technical needs." },
@@ -72,7 +74,7 @@ export const pages = {
     eyebrow: "Get involved",
     title: "Help keep the story moving.",
     intro: "St Luke’s is cared for and animated by a wide circle of people. There are ways to volunteer, support the building and share what makes this place matter.",
-    image: "/images/church-wall.jpg",
+    image: assetPath("/images/church-wall.jpg"),
     alt: "The long red-brick wall and arches of St Luke’s.",
     blocks: [
       { heading: "Volunteer", text: "Volunteering can include welcoming people, helping with events, sharing stories and practical support. Opportunities vary, so please register your interest rather than relying on an old vacancy listing." },
@@ -185,7 +187,7 @@ export const posts = publishedPosts.map(({ title, date }, index) => ({
   title,
   date,
   excerpt: "An archived story from St Luke’s about the building, its programme, partners and the community around it.",
-  image: `/images/${postImages[index % postImages.length]}`,
+  image: assetPath(`/images/${postImages[index % postImages.length]}`),
   imageAlt: "A view of St Luke’s Bombed Out Church in Liverpool.",
   body: postBodyByTitle[title],
 }));
