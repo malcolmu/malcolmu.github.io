@@ -14,8 +14,8 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { margin: 0; overflow-x: hidden; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -335,7 +335,7 @@ em { font-weight: 400; }
 .menu-trigger b { display: block; height: 1px; background: currentColor; }
 .menu-backdrop { position: fixed; inset: 0; z-index: 40; background: rgba(9,12,15,.58); opacity: 0; pointer-events: none; transition: opacity .25s ease; }
 .menu-backdrop.is-open { opacity: 1; pointer-events: auto; }
-.menu-panel { position: fixed; z-index: 50; inset: 0 0 0 auto; width: min(540px, 100vw); padding: 24px 32px 30px; background: var(--cream); color: var(--ink); transform: translateX(102%); visibility: hidden; transition: transform .32s ease, visibility .32s; overflow-y: auto; }
+.menu-panel { position: fixed; z-index: 50; inset: 0 0 0 auto; width: min(540px, 100vw); max-width: 100%; padding: 24px 32px 30px; background: var(--cream); color: var(--ink); transform: translateX(100%); visibility: hidden; transition: transform .32s ease, visibility .32s; overflow-y: auto; }
 .menu-panel.is-open { transform: translateX(0); visibility: visible; }
 .menu-panel__head { display: flex; align-items: center; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid var(--ink); }
 .menu-panel__head button { min-height: 46px; padding: 0 13px; border: 1px solid var(--ink); background: transparent; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; font-weight: 800; cursor: pointer; }
