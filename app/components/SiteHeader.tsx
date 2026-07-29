@@ -70,14 +70,14 @@ export function SiteHeader({ inverted = false }: { inverted?: boolean }) {
 
   return (
     <header className={`site-header ${inverted ? "site-header--inverted" : ""}`} role="banner">
-      <Link className="wordmark" href="/" aria-label="St Luke's Bombed Out Church home">
+      <Link className="wordmark" href="/" prefetch={false}>
         <span>St Luke’s</span>
         <strong>Bombed Out<br />Church</strong>
       </Link>
       <nav aria-label="Main navigation" className="main-nav">
-        {primaryLinks.map(([href, label]) => <Link href={href} key={href} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>)}
+        {primaryLinks.map(([href, label]) => <Link href={href} key={href} prefetch={false} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>)}
       </nav>
-      <Link className="header-link" href="/visit" aria-current={isCurrent("/visit") ? "page" : undefined}>Plan your visit <span aria-hidden="true">↘</span></Link>
+      <Link className="header-link" href="/visit" prefetch={false} aria-current={isCurrent("/visit") ? "page" : undefined}>Plan your visit <span aria-hidden="true">↘</span></Link>
 
       <button ref={triggerRef} className="menu-trigger" type="button" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
         <span>Explore</span><i aria-hidden="true"><b /><b /></i>
@@ -95,20 +95,20 @@ export function SiteHeader({ inverted = false }: { inverted?: boolean }) {
         inert={!open}
       >
         <div className="menu-panel__head">
-          <Link className="wordmark" href="/" onClick={() => setOpen(false)}>
+          <Link className="wordmark" href="/" prefetch={false} onClick={() => setOpen(false)}>
             <span>St Luke’s</span><strong>Bombed Out<br />Church</strong>
           </Link>
           <button ref={closeRef} type="button" onClick={() => { setOpen(false); triggerRef.current?.focus(); }} aria-label="Close menu">Close <span aria-hidden="true">×</span></button>
         </div>
         <nav aria-label="Mobile navigation" className="menu-panel__primary">
           {primaryLinks.map(([href, label], index) => (
-            <Link href={href} key={href} onClick={() => setOpen(false)} aria-current={isCurrent(href) ? "page" : undefined}>
+            <Link href={href} key={href} prefetch={false} onClick={() => setOpen(false)} aria-current={isCurrent(href) ? "page" : undefined}>
               <small>0{index + 1}</small><span>{label}</span><b aria-hidden="true">↗</b>
             </Link>
           ))}
         </nav>
         <nav aria-label="More pages" className="menu-panel__secondary">
-          {secondaryLinks.map(([href, label]) => <Link href={href} key={href} onClick={() => setOpen(false)} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>)}
+          {secondaryLinks.map(([href, label]) => <Link href={href} key={href} prefetch={false} onClick={() => setOpen(false)} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>)}
         </nav>
         <p>Leece Street, Liverpool L1 2TR<br /><a href="mailto:hello@slboc.com">hello@slboc.com</a></p>
       </aside>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import type { ContentBlock } from "@/app/lib/site-content";
 
 type StoryImage = {
@@ -76,7 +77,7 @@ export function StoryChapters({
               key={block.heading}
             >
               <div className="story-chapter__image" aria-hidden="true">
-                <img src={image.src} alt="" />
+                <ResponsiveImage src={image.src} alt="" sizes="100vw" />
               </div>
               <div className="story-chapter__shade" aria-hidden="true" />
               <div className="story-chapter__inner wrap">

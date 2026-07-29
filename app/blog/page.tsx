@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/app/components/PageHero";
+import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { posts } from "@/app/lib/site-content";
+import { pageMetadata } from "@/app/lib/metadata";
 import { assetPath } from "@/app/lib/site-path";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Blog & stories",
   description: "News, reflections and stories from St Luke’s Bombed Out Church, its programme, partners and community.",
-};
+  path: "/blog",
+});
 
 export default function BlogPage() {
   return (
@@ -23,7 +25,13 @@ export default function BlogPage() {
       <section className="post-grid blog-listing wrap" aria-label="Blog articles">
         {posts.map((post) => (
           <article className="post-card" key={post.slug}>
-            <Link className="post-card__image" href={`/blog/${post.slug}`}><img src={post.image} alt={post.imageAlt} /></Link>
+            <Link className="post-card__image" href={`/blog/${post.slug}`} prefetch={false}>
+              <ResponsiveImage
+                src={post.image}
+                alt={post.imageAlt}
+                sizes="(max-width: 600px) calc(100vw - 32px), 31vw"
+              />
+            </Link>
             <p className="eyebrow">{new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${post.date}T12:00:00`))}</p>
             <h2><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
             <p>{post.excerpt}</p>

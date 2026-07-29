@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import type { VenueEvent } from "@/app/lib/events";
 import { formatEventDate, formatTime } from "@/app/lib/events";
 
@@ -7,10 +8,16 @@ export function EventCard({ event, compact = false }: { event: VenueEvent; compa
     <Link
       href={`/whats-on/${event.slug}`}
       className={`event-card ${compact ? "event-card--compact" : ""}`}
-      aria-label={`${event.title} on ${formatEventDate(event)} at ${formatTime(event.time)}`}
+      prefetch={false}
     >
       <div className="event-card__image">
-        <img src={event.image} alt={event.imageAlt} />
+        <ResponsiveImage
+          src={event.image}
+          alt={event.imageAlt}
+          sizes={compact
+            ? "(max-width: 600px) 35vw, 18vw"
+            : "(max-width: 600px) 42vw, (max-width: 900px) 32vw, 30vw"}
+        />
         <span className="event-card__type">{event.category}</span>
       </div>
       <div className="event-card__body">

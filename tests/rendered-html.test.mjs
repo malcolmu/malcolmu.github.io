@@ -19,7 +19,7 @@ test("renders the home page with the project positioning and event route", async
   assert.match(html, /A place of reflection/);
   assert.match(html, /a living venue/);
   assert.match(html, /What’s on/);
-  assert.match(html, /church-roof\.jpg/);
+  assert.match(html, /church-roof-\d+\.webp/);
   assert.doesNotMatch(html, /Your site is taking shape|codex-preview|react-loading-skeleton/);
 });
 

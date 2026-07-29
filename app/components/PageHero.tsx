@@ -1,10 +1,11 @@
 import { SiteHeader } from "@/app/components/SiteHeader";
+import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 
 export function PageHero({ eyebrow, title, intro, image, alt, children }: { eyebrow: string; title: string; intro: string; image: string; alt: string; children?: React.ReactNode }) {
   const isLongTitle = title.length > 90 || title.split(" ").length > 12;
 
   return <section className={`page-hero ${isLongTitle ? "page-hero--long" : ""}`}>
-    <img src={image} alt={alt} />
+    <ResponsiveImage src={image} alt={alt} sizes="100vw" priority />
     <div className="page-hero__overlay" />
     <SiteHeader inverted />
     <div className="wrap page-hero__copy" id="main-content" tabIndex={-1}>

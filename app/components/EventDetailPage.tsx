@@ -2,13 +2,36 @@ import Link from "next/link";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { formatEventDate, formatTime, type VenueEvent } from "@/app/lib/events";
+import { SITE_NAME, SITE_URL } from "@/app/lib/metadata";
 
 export function EventDetailPage({ event }: { event: VenueEvent }) {
+  const eventStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.title,
+    description: event.summary,
+    startDate: `${event.date}T${event.time}:00+01:00`,
+    endDate: `${event.endDate ?? event.date}T${event.endTime ?? event.time}:00+01:00`,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    url: `${SITE_URL}/whats-on/${event.slug}`,
+    image: `${SITE_URL}/og-seo.png`,
+    location: {
+      "@type": "Place",
+      name: event.location,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Leece Street",
+        addressLocality: "Liverpool",
+        postalCode: "L1 2TR",
+        addressCountry: "GB",
+      },
+    },
+    organizer: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+  };
+
   return (
     <main className="event-detail-page">
-      <title>{event.title} | St Luke’s Bombed Out Church</title>
-      <meta name="description" content={event.summary} />
-
       <PageHero
         eyebrow={event.category}
         title={event.title}
@@ -59,6 +82,10 @@ export function EventDetailPage({ event }: { event: VenueEvent }) {
       </section>
 
       <SiteFooter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventStructuredData) }}
+      />
     </main>
   );
 }

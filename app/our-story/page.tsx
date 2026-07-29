@@ -1,16 +1,18 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/app/components/PageHero";
+import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { StoryChapters } from "@/app/components/StoryChapters";
 import { pages, site } from "@/app/lib/site-content";
+import { pageMetadata } from "@/app/lib/metadata";
 import { assetPath } from "@/app/lib/site-path";
 
 const story = pages.story;
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Our story",
   description: story.intro,
-};
+  path: "/our-story",
+});
 
 const storyMoments = [
   { year: "1811", label: "Foundation stone laid", text: "The church began as part of a growing Liverpool, built to serve a fast-changing city." },
@@ -60,11 +62,11 @@ export default function StoryPage() {
 
       <section className="story-gallery wrap" aria-label="Views of St Luke’s">
         <div className="story-gallery__lead">
-          <img src={storyImages[0].src} alt={storyImages[0].alt} />
+          <ResponsiveImage src={storyImages[0].src} alt={storyImages[0].alt} sizes="(max-width: 600px) 100vw, 62vw" />
         </div>
         <div className="story-gallery__stack">
-          <img src={storyImages[1].src} alt={storyImages[1].alt} />
-          <img src={storyImages[2].src} alt={storyImages[2].alt} />
+          <ResponsiveImage src={storyImages[1].src} alt={storyImages[1].alt} sizes="(max-width: 600px) 100vw, 34vw" />
+          <ResponsiveImage src={storyImages[2].src} alt={storyImages[2].alt} sizes="(max-width: 600px) 100vw, 34vw" />
         </div>
       </section>
 
