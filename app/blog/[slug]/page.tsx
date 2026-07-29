@@ -12,6 +12,8 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
   if (!post) notFound();
   return (
     <main>
+      <title>{post.title} | St Luke’s Bombed Out Church</title>
+      <meta name="description" content={post.excerpt} />
       <PageHero eyebrow="Blog & stories" title={post.title} intro={post.excerpt} image={post.image} alt={post.imageAlt}>
         <Link href="/blog" className="button button--light">All stories <span aria-hidden="true">↗</span></Link>
       </PageHero>

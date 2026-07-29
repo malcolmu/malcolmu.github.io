@@ -14,7 +14,7 @@ export function HomePage() {
         <img className="hero__image" src={assetPath("/images/church-roof.jpg")} alt="The open-roof interior of St Luke’s Bombed Out Church." />
         <div className="hero__wash" />
         <SiteHeader inverted />
-        <div className="hero__copy wrap">
+        <div className="hero__copy wrap" id="main-content" tabIndex={-1}>
           <p className="kicker">Liverpool city centre</p>
           <h1 id="home-title">A place of reflection<br />and a living venue.</h1>
           <p className="hero__dek">St Luke’s is Liverpool’s open-air historic landmark — home to events, heritage, a garden bar and moments of quiet.</p>

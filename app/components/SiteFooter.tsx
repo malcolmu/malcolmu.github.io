@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
+    <footer className="site-footer" role="contentinfo">
       <div className="site-footer__identity">
         <p className="footer-wordmark">St Luke’s<br />Bombed Out Church</p>
         <address>Leece Street<br />Liverpool L1 2TR</address>
@@ -29,9 +29,9 @@ export function SiteFooter() {
       </nav>
       <nav aria-label="Social media">
         <p>Follow</p>
-        <a href="https://www.instagram.com/bombedoutchurchliverpool/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a>
-        <a href="https://www.facebook.com/StLukesBombedOutChurch/" target="_blank" rel="noreferrer">Facebook <span aria-hidden="true">↗</span></a>
-        <a href="https://www.instagram.com/bocgardenbar/" target="_blank" rel="noreferrer">Garden Bar <span aria-hidden="true">↗</span></a>
+        <a href="https://www.instagram.com/bombedoutchurchliverpool/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/StLukesBombedOutChurch/" target="_blank" rel="noreferrer">Facebook <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://www.instagram.com/bocgardenbar/" target="_blank" rel="noreferrer">Garden Bar <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
       </nav>
       <p className="site-footer__small">Local prototype · details to verify before publication</p>
     </footer>

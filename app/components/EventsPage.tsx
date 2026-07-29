@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { EventCard } from "@/app/components/EventCard";
-import { SiteHeader } from "@/app/components/SiteHeader";
+import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { eventCategories, events, formatTime, type EventCategory } from "@/app/lib/events";
 import { assetPath } from "@/app/lib/site-path";
@@ -101,21 +101,15 @@ export function EventsPage() {
 
   return (
     <main className="events-page">
-      <section className="events-intro" aria-labelledby="events-title">
-        <img src={assetPath("/images/garden-crowd.jpg")} alt="People gathering in the sunny gardens beside St Luke’s for an event." />
-        <div className="events-intro__overlay" />
-        <SiteHeader inverted />
-        <div className="wrap events-intro__copy">
-          <div className="events-intro__content">
-            <p className="kicker">What’s on</p>
-            <h1 id="events-title">There’s always<br /><em>something happening.</em></h1>
-            <div>
-              <p>Music, heritage, moments of stillness and good times in the garden. Find your next reason to come in.</p>
-              <a className="button button--dark" href="#calendar">Explore the calendar <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="What’s on"
+        title="There’s always something happening."
+        intro="Music, heritage, moments of stillness and good times in the garden. Find your next reason to come in."
+        image={assetPath("/images/garden-crowd.jpg")}
+        alt="People gathering in the sunny gardens beside St Luke’s for an event."
+      >
+        <a className="button button--light" href="#calendar">Explore the calendar <span aria-hidden="true">↓</span></a>
+      </PageHero>
 
       <section className="next-events" aria-labelledby="next-events-title">
         <div className="wrap programme__head">
@@ -132,16 +126,18 @@ export function EventsPage() {
             <div className="month-nav">
               <button type="button" onClick={() => changeMonth(-1)} aria-label="Previous month">←</button>
               <div className={`month-nav__picker ${showMonthPicker ? "is-open" : ""}`}>
-                <button
-                  type="button"
-                  className="month-nav__label"
-                  aria-expanded={showMonthPicker}
-                  aria-controls="calendar-month-picker"
-                  onClick={() => setShowMonthPicker((open) => !open)}
-                >
-                  <h2 id="calendar-title">{monthTitle}</h2>
-                  <span aria-hidden="true">↓</span>
-                </button>
+                <h2 id="calendar-title">
+                  <button
+                    type="button"
+                    className="month-nav__label"
+                    aria-expanded={showMonthPicker}
+                    aria-controls="calendar-month-picker"
+                    onClick={() => setShowMonthPicker((open) => !open)}
+                  >
+                    <span>{monthTitle}</span>
+                    <span aria-hidden="true">↓</span>
+                  </button>
+                </h2>
                 {showMonthPicker ? (
                   <label className="month-nav__popover" id="calendar-month-picker">
                     <span className="sr-only">Choose month and year</span>
@@ -157,12 +153,12 @@ export function EventsPage() {
               <button type="button" onClick={() => changeMonth(1)} aria-label="Next month">→</button>
               <button type="button" className="month-nav__today" onClick={goToToday}>Today</button>
             </div>
-            <div className="view-switch" aria-label="Events view">
+            <div className="view-switch" role="group" aria-label="Events view">
               <button type="button" className={mode === "calendar" ? "is-active" : ""} onClick={() => changeMode("calendar")} aria-pressed={mode === "calendar"}>Calendar</button>
               <button type="button" className={mode === "agenda" ? "is-active" : ""} onClick={() => changeMode("agenda")} aria-pressed={mode === "agenda"}>Agenda</button>
             </div>
           </div>
-          <div className="filters" aria-label="Filter events by category">
+          <div className="filters" role="group" aria-label="Filter events by category">
             <button type="button" className={filter === "All" ? "is-active" : ""} aria-pressed={filter === "All"} onClick={() => setFilter("All")}>All events</button>
             {eventCategories.map((category) => <button type="button" key={category} className={filter === category ? "is-active" : ""} aria-pressed={filter === category} onClick={() => setFilter(category)}>{category}</button>)}
           </div>

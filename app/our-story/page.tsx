@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
+import { StoryChapters } from "@/app/components/StoryChapters";
 import { pages, site } from "@/app/lib/site-content";
 import { assetPath } from "@/app/lib/site-path";
 
 const story = pages.story;
+
+export const metadata: Metadata = {
+  title: "Our story",
+  description: story.intro,
+};
 
 const storyMoments = [
   { year: "1811", label: "Foundation stone laid", text: "The church began as part of a growing Liverpool, built to serve a fast-changing city." },
@@ -67,24 +74,7 @@ export default function StoryPage() {
         </div>
       </section>
 
-      <section className="story-journey wrap" id="story-journey">
-        {story.blocks.map((block, index) => {
-          const image = storyImages[(index + 1) % storyImages.length];
-          const sectionId = "id" in block ? block.id : undefined;
-          return (
-            <article className={`story-panel ${index % 2 === 1 ? "story-panel--reverse" : ""}`} id={sectionId} key={block.heading}>
-              <div className="story-panel__image">
-                <img src={image.src} alt={image.alt} />
-              </div>
-              <div className="story-panel__copy">
-                <p className="section-label">Chapter {String(index + 1).padStart(2, "0")}</p>
-                <h2>{block.heading}</h2>
-                <p>{block.text}</p>
-              </div>
-            </article>
-          );
-        })}
-      </section>
+      <StoryChapters blocks={story.blocks} images={storyImages} />
 
       <SiteFooter />
     </main>

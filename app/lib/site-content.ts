@@ -5,6 +5,8 @@ export type ContentBlock = { heading?: string; text: string; id?: string; link?:
 export const site = {
   address: "Leece Street, Liverpool L1 2TR",
   email: "hello@slboc.com",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=St+Luke%27s+Bombed+Out+Church+Leece+Street+Liverpool+L1+2TR",
+  contactImage: assetPath("/images/church-arch.jpg"),
   notice: "Practical information, opening times and event details are local prototype content. Please verify before publishing.",
 };
 
