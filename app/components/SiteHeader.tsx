@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 
 const primaryLinks = [
   ["/whats-on", "What’s on"],
@@ -77,7 +78,7 @@ export function SiteHeader({ inverted = false }: { inverted?: boolean }) {
       <nav aria-label="Main navigation" className="main-nav">
         {primaryLinks.map(([href, label]) => <Link href={href} key={href} prefetch={false} aria-current={isCurrent(href) ? "page" : undefined}>{label}</Link>)}
       </nav>
-      <Link className="header-link" href="/visit" prefetch={false} aria-current={isCurrent("/visit") ? "page" : undefined}>Plan your visit <span aria-hidden="true">↘</span></Link>
+      <Link className="header-link" href="/visit" prefetch={false} aria-current={isCurrent("/visit") ? "page" : undefined}>Plan your visit <ArrowIcon direction="down-right" /></Link>
 
       <button ref={triggerRef} className="menu-trigger" type="button" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
         <span>Explore</span><i aria-hidden="true"><b /><b /></i>
@@ -103,7 +104,7 @@ export function SiteHeader({ inverted = false }: { inverted?: boolean }) {
         <nav aria-label="Mobile navigation" className="menu-panel__primary">
           {primaryLinks.map(([href, label], index) => (
             <Link href={href} key={href} prefetch={false} onClick={() => setOpen(false)} aria-current={isCurrent(href) ? "page" : undefined}>
-              <small>0{index + 1}</small><span>{label}</span><b aria-hidden="true">↗</b>
+              <small>0{index + 1}</small><span>{label}</span><ArrowIcon />
             </Link>
           ))}
         </nav>

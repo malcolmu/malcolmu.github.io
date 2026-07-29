@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { PageHero } from "@/app/components/PageHero";
 import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import { SiteFooter } from "@/app/components/SiteFooter";
@@ -33,7 +34,7 @@ export default function StoryPage() {
   return (
     <main className="story-page">
       <PageHero {...story}>
-        <a className="button button--light" href="#story-journey">Explore the story <span aria-hidden="true">↓</span></a>
+        <a className="button button--light" href="#story-journey">Explore the story <ArrowIcon direction="down" /></a>
       </PageHero>
 
       <div className="verify-note wrap">

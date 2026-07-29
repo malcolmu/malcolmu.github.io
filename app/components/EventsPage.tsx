@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { EventCard } from "@/app/components/EventCard";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
@@ -108,7 +109,7 @@ export function EventsPage() {
         image={assetPath("/images/garden-crowd.jpg")}
         alt="People gathering in the sunny gardens beside St Luke’s for an event."
       >
-        <a className="button button--light" href="#calendar">Explore the calendar <span aria-hidden="true">↓</span></a>
+        <a className="button button--light" href="#calendar">Explore the calendar <ArrowIcon direction="down" /></a>
       </PageHero>
 
       <section className="next-events" aria-labelledby="next-events-title">
@@ -124,7 +125,7 @@ export function EventsPage() {
         <div className="wrap">
           <div className="calendar-toolbar">
             <div className="month-nav">
-              <button type="button" onClick={() => changeMonth(-1)} aria-label="Previous month">←</button>
+              <button type="button" onClick={() => changeMonth(-1)} aria-label="Previous month"><ArrowIcon direction="left" /></button>
               <div className={`month-nav__picker ${showMonthPicker ? "is-open" : ""}`}>
                 <h2 id="calendar-title">
                   <button
@@ -135,7 +136,7 @@ export function EventsPage() {
                     onClick={() => setShowMonthPicker((open) => !open)}
                   >
                     <span>{monthTitle}</span>
-                    <span aria-hidden="true">↓</span>
+                    <ArrowIcon direction="down" />
                   </button>
                 </h2>
                 {showMonthPicker ? (
@@ -150,7 +151,7 @@ export function EventsPage() {
                   </label>
                 ) : null}
               </div>
-              <button type="button" onClick={() => changeMonth(1)} aria-label="Next month">→</button>
+              <button type="button" onClick={() => changeMonth(1)} aria-label="Next month"><ArrowIcon direction="right" /></button>
               <button type="button" className="month-nav__today" onClick={goToToday}>Today</button>
             </div>
             <div className="view-switch" role="group" aria-label="Events view">
@@ -204,7 +205,7 @@ export function EventsPage() {
                   <h3 id="selected-day-title">{selectedLabel}</h3>
                 </div>
                 <div className="selected-agenda__events">
-                  {selectedEvents.length ? selectedEvents.map((event) => <Link key={event.id} href={`/whats-on/${event.slug}`} className="agenda-row"><span>{formatTime(event.time)}</span><strong>{event.title}</strong><em>{event.category}</em><b aria-hidden="true">↗</b></Link>) : <p>No events are scheduled for this day. Try another date or show all events.</p>}
+                  {selectedEvents.length ? selectedEvents.map((event) => <Link key={event.id} href={`/whats-on/${event.slug}`} className="agenda-row"><span>{formatTime(event.time)}</span><strong>{event.title}</strong><em>{event.category}</em><ArrowIcon /></Link>) : <p>No events are scheduled for this day. Try another date or show all events.</p>}
                 </div>
               </section>
             </>
@@ -220,7 +221,7 @@ export function EventsPage() {
         <div className="wrap">
           <p className="section-label">Looking for a quiet visit?</p>
           <h2>The church is more than its programme.</h2>
-          <Link className="text-link" href="/visit">Plan your visit <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/visit">Plan your visit <ArrowIcon /></Link>
         </div>
       </section>
       <SiteFooter />

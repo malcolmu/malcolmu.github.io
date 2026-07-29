@@ -1,5 +1,6 @@
 "use client";
 import { FormEvent, useId, useState } from "react";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 export function PrototypeForm({ title = "Send an enquiry", fields = ["Your name", "Email address", "Tell us a little more"] }: { title?: string; fields?: string[] }) {
   const [sent, setSent] = useState(false);
   const formId = useId();
@@ -31,7 +32,7 @@ export function PrototypeForm({ title = "Send an enquiry", fields = ["Your name"
           </label>
         );
       })}
-      <button className="button button--dark" type="submit">{sent ? "Prototype only — not sent" : "Send enquiry"} <span aria-hidden="true">↗</span></button>
+      <button className="button button--dark" type="submit">{sent ? "Prototype only — not sent" : "Send enquiry"} <ArrowIcon /></button>
       <p className="sr-only" role="status" aria-live="polite">{sent ? "This prototype form has not sent or stored your details." : ""}</p>
     </form>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { pageMetadata, SITE_NAME, SITE_URL } from "@/app/lib/metadata";
@@ -39,7 +40,7 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
   return (
     <main>
       <PageHero eyebrow="Blog & stories" title={post.title} intro={post.excerpt} image={post.image} alt={post.imageAlt}>
-        <Link href="/blog" className="button button--light">All stories <span aria-hidden="true">↗</span></Link>
+        <Link href="/blog" className="button button--light">All stories <ArrowIcon /></Link>
       </PageHero>
       <article className="article wrap">
         <p className="eyebrow">{new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${post.date}T12:00:00`))}</p>

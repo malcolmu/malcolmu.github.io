@@ -20,6 +20,8 @@ test("renders the home page with the project positioning and event route", async
   assert.match(html, /a living venue/);
   assert.match(html, /What’s on/);
   assert.match(html, /church-roof-\d+\.webp/);
+  assert.match(html, /arrow-icon--up-right/);
+  assert.doesNotMatch(html, /[↗↘]/, "directional arrows use the site SVG instead of platform emoji glyphs");
   assert.doesNotMatch(html, /Your site is taking shape|codex-preview|react-loading-skeleton/);
 });
 

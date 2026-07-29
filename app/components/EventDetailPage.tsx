@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { formatEventDate, formatTime, type VenueEvent } from "@/app/lib/events";
@@ -40,9 +41,9 @@ export function EventDetailPage({ event }: { event: VenueEvent }) {
         alt={event.imageAlt}
       >
         <div className="event-hero-actions">
-          <Link href="/whats-on" className="text-link">← Back to what’s on</Link>
+          <Link href="/whats-on" className="text-link"><ArrowIcon direction="left" /> Back to what’s on</Link>
           <a href="https://www.eventbrite.co.uk/" target="_blank" rel="noreferrer" className="button button--light">
-            Check Eventbrite <span aria-hidden="true">↗</span>
+            Check Eventbrite <ArrowIcon />
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </div>
@@ -60,7 +61,7 @@ export function EventDetailPage({ event }: { event: VenueEvent }) {
           <div><span>Place</span><strong>{event.location}</strong></div>
           <div><span>Tickets</span><strong>{event.price}</strong></div>
           <a href="https://www.eventbrite.co.uk/" target="_blank" rel="noreferrer" className="button button--dark">
-            Check Eventbrite <span aria-hidden="true">↗</span>
+            Check Eventbrite <ArrowIcon />
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
         </aside>
@@ -77,7 +78,7 @@ export function EventDetailPage({ event }: { event: VenueEvent }) {
         <div className="wrap">
           <p className="section-label">Keep exploring</p>
           <h2>More reasons to come in.</h2>
-          <Link href="/whats-on" className="button button--light">Browse the calendar <span>↗</span></Link>
+          <Link href="/whats-on" className="button button--light">Browse the calendar <ArrowIcon /></Link>
         </div>
       </section>
 

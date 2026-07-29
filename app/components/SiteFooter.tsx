@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 
 export function SiteFooter() {
   return (
@@ -29,9 +30,9 @@ export function SiteFooter() {
       </nav>
       <nav aria-label="Social media">
         <p>Follow</p>
-        <a href="https://www.instagram.com/bombedoutchurchliverpool/" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
-        <a href="https://www.facebook.com/StLukesBombedOutChurch/" target="_blank" rel="noreferrer">Facebook <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
-        <a href="https://www.instagram.com/bocgardenbar/" target="_blank" rel="noreferrer">Garden Bar <span aria-hidden="true">↗</span><span className="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://www.instagram.com/bombedoutchurchliverpool/" target="_blank" rel="noreferrer">Instagram <ArrowIcon /><span className="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/StLukesBombedOutChurch/" target="_blank" rel="noreferrer">Facebook <ArrowIcon /><span className="sr-only"> (opens in a new tab)</span></a>
+        <a href="https://www.instagram.com/bocgardenbar/" target="_blank" rel="noreferrer">Garden Bar <ArrowIcon /><span className="sr-only"> (opens in a new tab)</span></a>
       </nav>
       <p className="site-footer__small">Local prototype · details to verify before publication</p>
     </footer>

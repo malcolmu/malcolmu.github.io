@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import type { VenueEvent } from "@/app/lib/events";
 import { formatEventDate, formatTime } from "@/app/lib/events";
@@ -24,7 +25,7 @@ export function EventCard({ event, compact = false }: { event: VenueEvent; compa
         <p className="eyebrow">{formatEventDate(event)} · {formatTime(event.time)}</p>
         <h3>{event.title}</h3>
         {!compact && <p>{event.summary}</p>}
-        <span className="text-link">Find out more <span aria-hidden="true">↗</span></span>
+        <span className="text-link">Find out more <ArrowIcon /></span>
       </div>
     </Link>
   );

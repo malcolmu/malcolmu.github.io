@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowIcon } from "@/app/components/ArrowIcon";
 import { PageHero } from "@/app/components/PageHero";
 import { ResponsiveImage } from "@/app/components/ResponsiveImage";
 import { SiteFooter } from "@/app/components/SiteFooter";
@@ -35,7 +36,7 @@ export default function BlogPage() {
             <p className="eyebrow">{new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" }).format(new Date(`${post.date}T12:00:00`))}</p>
             <h2><Link href={`/blog/${post.slug}`}>{post.title}</Link></h2>
             <p>{post.excerpt}</p>
-            <Link className="text-link" href={`/blog/${post.slug}`}>Read story <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" href={`/blog/${post.slug}`}>Read story <ArrowIcon /></Link>
           </article>
         ))}
       </section>
