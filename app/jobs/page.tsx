@@ -1,0 +1,2 @@
+import { ContentPage } from "@/app/components/ContentPage"; import { pages } from "@/app/lib/site-content";
+export default function JobsPage() { return <ContentPage content={{...pages.involved, eyebrow:"Work with us", title:"Join the team behind the landmark.", intro:"Current vacancies and recruitment details should be published here when they are live. This replaces the old, dated jobs listing with a simple, current route.", image:"/images/church-nave.jpg", alt:"The open nave of St Luke’s."}}/>; }

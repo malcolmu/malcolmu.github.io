@@ -1,0 +1,1 @@
+export function FAQ({ items }: { items: readonly (readonly [string, string])[] }) { return <section className="faq"><p className="section-label">Questions, answered</p><h2>A little more detail.</h2>{items.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</section>; }
