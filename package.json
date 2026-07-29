@@ -8,10 +8,11 @@
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "node scripts/clean-dist.mjs && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
-    "build:pages": "NEXT_PUBLIC_BASE_PATH=/slboc STATIC_EXPORT=1 npx next build --webpack && node scripts/prepare-github-pages.mjs",
+    "build:staging": "NEXT_PUBLIC_BASE_PATH=/slboc STATIC_EXPORT=1 next build --webpack && node scripts/prepare-github-pages.mjs",
+    "build:pages": "npm run build:staging",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
-    "test:a11y": "npm run build:pages && node --test tests/accessibility-export.test.mjs",
+    "test:a11y": "npm run build:staging && node --test tests/accessibility-export.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },

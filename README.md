@@ -16,9 +16,16 @@ The colour system is based on the current signage guidance: `#4D55A0`, `#DDD3D0`
 
 Photography is sourced from the project’s internal current-site reference set. It is for redesign exploration only; confirm rights, credits and original-resolution files before publication.
 
+## Staging
+
+The staging site is published at `https://malcolmu.github.io/slboc/`. Pushing `main` runs `.github/workflows/pages.yml`, which builds and deploys the static export through GitHub Actions and GitHub Pages.
+
+ChatGPT hosting and OpenAI Sites are not used for this project's staging site.
+
 ## Commands
 
 - `npm run dev` — run locally
 - `npm run build` — create and verify production output
+- `npm run build:staging` — create the GitHub Pages staging export
 - `npm run lint` — check code quality
 - `npm test` — render all three routes and check core content
